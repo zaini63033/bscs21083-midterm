@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import debounce from 'lodash/debounce';
-import styles from './homePage.css';
+import './homePage.css'
 import { fetchInitialResults, fetchMovies } from './fetchMovies';
 
-export const SearchPage = () => {
+export const HomePage = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -56,9 +56,9 @@ export const SearchPage = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Search for a Movie</h1>
-      <div className={styles.searchBar}>
+    <div className={"container"}>
+      <h1 className={"title"}>Search for a Movie</h1>
+      <div className={"searchBar"}>
         <input
           type="text"
           value={query}
@@ -69,11 +69,11 @@ export const SearchPage = () => {
           {isLoading ? 'Searching...' : 'Search'}
         </button>
       </div>
-      {error && <p className={styles.error}>{error}</p>}
-      <div className={styles.results}>
+      {error && <p className={"error"}>{error}</p>}
+      <div className={"results"}>
         {results.map((result) => (
-          <div key={result?.show?.id ?? result?.id} className={styles.showCard}>
-            <div className={styles.imageWrapper}>
+          <div key={result?.show?.id ?? result?.id} className={"showCard"}>
+            <div className={"imageWrapper"}>
               <img
                 src={
                   result?.show?.image?.medium ??
@@ -86,7 +86,7 @@ export const SearchPage = () => {
                 height={420}
               />
             </div>
-            <div className={styles.showDetails}>
+            <div className={"showDetails"}>
               <h2>{result?.show?.name ?? result?.name ?? 'No name'}</h2>
               <p>
                 <strong>Release Date:</strong>{' '}
